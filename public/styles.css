@@ -1,0 +1,9 @@
+body {
+  background: #3c4457;
+  padding: 1rem;
+}
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: .3rem;
+}
