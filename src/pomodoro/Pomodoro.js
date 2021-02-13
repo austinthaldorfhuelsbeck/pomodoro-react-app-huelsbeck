@@ -7,21 +7,17 @@ import Timer from "./Timer/Timer";
 const Pomodoro = () => {
   //// Defining initial states + setting up state things ////
   ////
-  // Timer starts out paused and stopped
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [isTimerStopped, setIsTimerStopped] = useState(true);
-  // The total duration time, handled by InputGroup, includes defaults
   const [focusDuration, setFocusDuration] = useState(25);
   const [breakDuration, setBreakDuration] = useState(5);
   const [timeRemaining, setTimeRemaining] = useState(25 * 60);
-  // set whether we're in focus or break mode
   const [currentTimer, setCurrentTimer] = useState("focus");
 
   //// "The Brain": the timer itself
   useInterval(
     () => {
       if (timeRemaining === 0) {
-        // alarm
         new Audio(
           `${process.env.PUBLIC_URL}/alarm/alarm-clock-buzzer-beeps.mp3`
         ).play();
@@ -35,7 +31,7 @@ const Pomodoro = () => {
         setTimeRemaining((currentTime) => currentTime - 1);
       }
     },
-    isTimerRunning ? 1000 : null
+    isTimerRunning ? 100 : null
   );
 
   //// Handlers for buttons
@@ -131,13 +127,13 @@ const Pomodoro = () => {
   return (
     <div className="pomodoro">
       <div className="row">
-        <div className="col">
+        <div className="mx-auto">
           <SetTimer {...focusProps} />
         </div>
-        <div className="col">
-          <div className="float-right">
-            <SetTimer {...breakProps} />
-          </div>
+      </div>
+      <div className="row">
+        <div className="mx-auto">
+          <SetTimer {...breakProps} />
         </div>
       </div>
       <div className="row">

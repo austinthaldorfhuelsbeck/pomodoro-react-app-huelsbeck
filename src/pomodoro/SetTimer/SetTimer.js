@@ -1,7 +1,7 @@
-import React, { memo } from "react";
+import React from "react";
 import { minutesToDuration, secondsToDuration } from "../../utils/duration";
 
-const SetTimer = (props) => {
+export default function SetTimer(props) {
   //// Handling props: format for `data-testid` labels
   const decreaseTitle = `decrease-${props.id}`;
   const increaseTitle = `increase-${props.id}`;
@@ -9,8 +9,8 @@ const SetTimer = (props) => {
   // disable the increase/decrease when playing
   // AKA when timer isn't stopped
   const buttonClass = props.isTimerStopped
-    ? "btn btn-secondary"
-    : "btn btn-secondary disabled";
+    ? "btn btn-outline-light"
+    : "btn btn-outline-light disabled";
 
   //// Build the structure and return!
   return (
@@ -38,6 +38,4 @@ const SetTimer = (props) => {
       </div>
     </div>
   );
-};
-
-export default memo(SetTimer);
+}

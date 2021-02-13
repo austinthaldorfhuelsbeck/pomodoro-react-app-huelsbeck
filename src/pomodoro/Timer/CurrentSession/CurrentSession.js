@@ -1,7 +1,7 @@
-import React, { memo } from "react";
+import React from "react";
 import { minutesToDuration, secondsToDuration } from "../../../utils/duration";
 
-const CurrentSession = (props) => {
+export default function CurrentSession(props) {
   //// Handling props:
   // formatting display of time
   const minutesTotal = secondsToDuration(props.timerInit);
@@ -26,6 +26,4 @@ const CurrentSession = (props) => {
       {subHeader}
     </>
   );
-};
-
-export default memo(CurrentSession);
+}

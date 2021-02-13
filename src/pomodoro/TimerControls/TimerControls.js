@@ -17,7 +17,7 @@ const TimerControls = (props) => {
     >
       <button
         type="button"
-        className="btn btn-primary"
+        className="btn btn-secondary"
         data-testid="play-pause"
         title="Start or pause timer"
         onClick={props.playPause}

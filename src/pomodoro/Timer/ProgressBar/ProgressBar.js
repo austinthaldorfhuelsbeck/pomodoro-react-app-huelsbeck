@@ -12,7 +12,7 @@ const ProgressBar = (props) => {
   return (
     <div className="progress" style={{ height: "20px" }}>
       <div
-        className="progress-bar"
+        className="progress-bar progress-bar-striped progress-bar-animated"
         role="progressbar"
         aria-valuemin="0"
         aria-valuemax="100"
