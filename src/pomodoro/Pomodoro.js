@@ -1,10 +1,10 @@
-import React, { useState, memo } from "react";
+import React, { useState } from "react";
 import useInterval from "../utils/useInterval";
 import SetTimer from "./SetTimer/SetTimer";
 import TimerControls from "./TimerControls/TimerControls";
 import Timer from "./Timer/Timer";
 
-const Pomodoro = () => {
+export default function Pomodoro(props) {
   //// Defining initial states + setting up state things ////
   ////
   const [isTimerRunning, setIsTimerRunning] = useState(false);
@@ -37,7 +37,6 @@ const Pomodoro = () => {
   //// Handlers for buttons
   // Play / Pause button
   function handlePlayPause() {
-    // flip the state of the variable holding whether it's paused
     setIsTimerRunning((prevState) => !prevState);
     // if everything's stopped, flip the state of the stopped variable
     if (isTimerStopped && !isTimerRunning) {
@@ -49,8 +48,6 @@ const Pomodoro = () => {
     }
   }
   // Increase / Decrease buttons
-  // Increase + decrease only work if stopped and
-  // if the limit hasn't been reached
   function handleFocusIncrease() {
     if (isTimerStopped && focusDuration < 60) {
       setFocusDuration((currentDuration) => currentDuration + 5);
@@ -72,11 +69,9 @@ const Pomodoro = () => {
       setBreakDuration((currentDuration) => currentDuration - 1);
   }
   // Stop button
-  // Stop only works if not stopped
-  // and should flip its own state along with stopping the timer
   function handleStop() {
     if (!isTimerStopped) {
-      // This basically initializes every possible thing
+      // Initializes every possible thing
       setIsTimerRunning(false);
       setIsTimerStopped(true);
       setFocusDuration(25);
@@ -87,7 +82,6 @@ const Pomodoro = () => {
   }
 
   //// Defining props
-  // SetTimer comes in two flavors: Focus and Break
   const focusProps = {
     title: "Focus Duration",
     id: "focus",
@@ -96,7 +90,6 @@ const Pomodoro = () => {
     handleIncrease: handleFocusIncrease,
     isTimerStopped: isTimerStopped,
   };
-
   const breakProps = {
     title: "Break Duration",
     id: "break",
@@ -105,8 +98,6 @@ const Pomodoro = () => {
     handleIncrease: handleBreakIncrease,
     isTimerStopped: isTimerStopped,
   };
-
-  // Props for both the display of the timer and progress bar
   const timerProps = {
     timeRemaining: timeRemaining,
     isTimerRunning: isTimerRunning,
@@ -115,8 +106,6 @@ const Pomodoro = () => {
     breakDuration: breakDuration,
     currentTimer: currentTimer,
   };
-
-  // Play / pause component
   const timerControlProps = {
     playPause: handlePlayPause,
     stopSession: handleStop,
@@ -146,6 +135,4 @@ const Pomodoro = () => {
       </div>
     </div>
   );
-};
-
-export default memo(Pomodoro);
+}

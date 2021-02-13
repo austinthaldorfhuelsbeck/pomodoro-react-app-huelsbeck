@@ -2,17 +2,15 @@ import React from "react";
 import { minutesToDuration, secondsToDuration } from "../../../utils/duration";
 
 export default function CurrentSession(props) {
-  //// Handling props:
-  // formatting display of time
+  //// Handling props
   const minutesTotal = secondsToDuration(props.timerInit);
   const minutesRemaining = secondsToDuration(props.timeRemaining);
-  // formatting content of h2
+
+  //// Build the header and subheader
   const headerContent =
     props.currentTimer === "focus"
       ? `Focusing for ${minutesTotal} minutes`
       : `On Break for ${minutesTotal} minutes`;
-
-  //// Build the subheader component
   const subHeader = (
     <p className="lead" data-testid="session-sub-title">
       {minutesRemaining} remaining

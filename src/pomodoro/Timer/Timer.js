@@ -1,8 +1,8 @@
-import React, { memo } from "react";
+import React from "react";
 import CurrentSession from "../Timer/CurrentSession/CurrentSession";
 import ProgressBar from "../Timer/ProgressBar/ProgressBar";
 
-const Timer = (props) => {
+export default function Timer(props) {
   //// This componenet combines two components
   // They both need the initial/total duration time
   const timerInit =
@@ -12,9 +12,7 @@ const Timer = (props) => {
   // combine into the props object to pass it all thru
   const initObj = { ...props, ...{ timerInit: timerInit } };
 
-  // pseudo component to display whether paused or not
-  // (hidden when not paused)
-  const displayPaused = !props.isTimerRunning && (
+  const displayWhenPaused = !props.isTimerRunning && (
     <h2 className="my-4 paused">PAUSED</h2>
   );
 
@@ -26,7 +24,7 @@ const Timer = (props) => {
         <div className="row my-4">
           <div className="col">
             <CurrentSession {...initObj} />
-            {displayPaused}
+            {displayWhenPaused}
           </div>
         </div>
         <div className="row mb-2">
@@ -38,6 +36,4 @@ const Timer = (props) => {
     );
   }
   return null;
-};
-
-export default memo(Timer);
+}

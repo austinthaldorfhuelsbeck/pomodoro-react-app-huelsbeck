@@ -2,12 +2,11 @@ import React from "react";
 import { minutesToDuration, secondsToDuration } from "../../utils/duration";
 
 export default function SetTimer(props) {
-  //// Handling props: format for `data-testid` labels
+  //// Handling props
   const decreaseTitle = `decrease-${props.id}`;
   const increaseTitle = `increase-${props.id}`;
   const durationTitle = `duration-${props.id}`;
-  // disable the increase/decrease when playing
-  // AKA when timer isn't stopped
+  // disables the increase/decrease when playing
   const buttonClass = props.isTimerStopped
     ? "btn btn-outline-light"
     : "btn btn-outline-light disabled";

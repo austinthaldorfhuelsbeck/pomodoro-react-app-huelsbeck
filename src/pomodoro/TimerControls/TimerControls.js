@@ -1,7 +1,7 @@
-import React, { memo } from "react";
+import React from "react";
 import classNames from "../../utils/class-names";
 
-const TimerControls = (props) => {
+export default function TimerControls(props) {
   // changes the play/pause icon
   const classNameFlipper = classNames({
     oi: true,
@@ -34,6 +34,4 @@ const TimerControls = (props) => {
       </button>
     </div>
   );
-};
-
-export default memo(TimerControls);
+}

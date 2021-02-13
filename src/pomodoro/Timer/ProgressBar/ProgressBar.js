@@ -1,6 +1,6 @@
-import React, { memo } from "react";
+import React from "react";
 
-const ProgressBar = (props) => {
+export default function ProgressBar(props) {
   // Takes minutesRemaining as a percentage of timerInit,
   // inverts it for the progress %
   const percentage =
@@ -21,6 +21,4 @@ const ProgressBar = (props) => {
       />
     </div>
   );
-};
-
-export default memo(ProgressBar);
+}
