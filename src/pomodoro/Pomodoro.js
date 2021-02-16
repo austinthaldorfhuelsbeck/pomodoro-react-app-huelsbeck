@@ -3,6 +3,7 @@ import useInterval from "../utils/useInterval";
 import SetTimer from "./SetTimer/SetTimer";
 import TimerControls from "./TimerControls/TimerControls";
 import Timer from "./Timer/Timer";
+import alarmAudio from "../../public/alarm/alarm-clock-buzzer-beeps.mp3";
 
 export default function Pomodoro(props) {
   //// Defining initial states + setting up state things ////
@@ -18,9 +19,7 @@ export default function Pomodoro(props) {
   useInterval(
     () => {
       if (timeRemaining === 0) {
-        new Audio(
-          `${process.env.PUBLIC_URL}/alarm/alarm-clock-buzzer-beeps.mp3`
-        ).play();
+        new Audio(alarmAudio).play();
         // toggle timer break and reset seconds remaining
         setCurrentTimer(currentTimer === "focus" ? "break" : "focus");
         setTimeRemaining(
