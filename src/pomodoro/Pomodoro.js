@@ -30,7 +30,7 @@ export default function Pomodoro(props) {
         setTimeRemaining((currentTime) => currentTime - 1);
       }
     },
-    isTimerRunning ? 20 : null
+    isTimerRunning ? 1000 : null
   );
 
   //// Handlers for buttons
