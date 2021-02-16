@@ -3,7 +3,7 @@ import useInterval from "../utils/useInterval";
 import SetTimer from "./SetTimer/SetTimer";
 import TimerControls from "./TimerControls/TimerControls";
 import Timer from "./Timer/Timer";
-import alarmAudio from "../alarm/alarm-clock-buzzer-beeps.mp3";
+import alarmAudio from "../alarm/alarm.mp3";
 
 export default function Pomodoro(props) {
   //// Defining initial states + setting up state things ////
@@ -30,7 +30,7 @@ export default function Pomodoro(props) {
         setTimeRemaining((currentTime) => currentTime - 1);
       }
     },
-    isTimerRunning ? 100 : null
+    isTimerRunning ? 20 : null
   );
 
   //// Handlers for buttons
