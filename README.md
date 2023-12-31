@@ -28,4 +28,4 @@ Building my first fully-functional React app allowed me an opportunity to try ou
 
 ### Austin Thaldorf-Huelsbeck
 
-You can view this app [in action here.](https://pomodoro-react-app-huelsbeck-db668fb2m-austinthaldorfhuelsbeck.vercel.app/)
+You can view this app [in action here.](https://pomodoro-react-app-huelsbeck-austinthaldorfhuelsbeck.vercel.app/)
