@@ -17,12 +17,12 @@
  *    a space delimited string of the class names which have a value of `true`.
  */
 export default function classNames(classNameToBoolean) {
-  return Object.entries(classNameToBoolean)
-    .reduce(
-      (classes, [className, value]) =>
-        classes.concat(value ? className : undefined),
-      []
-    )
-    .filter((className) => className !== undefined)
-    .join(" ");
+	return Object.entries(classNameToBoolean)
+		.reduce(
+			(classes, [className, value]) =>
+				classes.concat(value ? className : undefined),
+			[],
+		)
+		.filter((className) => className !== undefined)
+		.join(" ");
 }
